@@ -1,13 +1,96 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome</title>
-</head>
-<body>
-    <h1>Welcome to the breast cancer AI</h1>
-    <input type="text" name="test" id="test">
-</body>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<!-- Popper JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/style.css"> 
+     <!-- add icon link -->
+     <link rel = "icon" type = "image/x-icon" href ="https://image.freepik.com/free-vector/futuristic-artificial-intelligence-face-technology-background_1017-18295.jpg">  
+    <title>Random Forest Breast Cancer Prediction AI</title>
+    
+  </head>
+  
+  <body style="background-color: #deeaf6;">
+    <div class="container_main">
+      <header class="d-flex justify-content-between pr-3 pl-5 py-auto">
+        <img src="https://image.freepik.com/free-vector/futuristic-artificial-intelligence-face-technology-background_1017-18295.jpg" alt="logo" width=170 height=110></td>
+        <h1 class='mr-5 my-auto'>Random Forest Breast Cancer Prediction AI</h1>
+      </header>
+        
+      <hr style="height:3px;border-width:0; margin-top: 0.3rem; color:gray;background-color:gray">
+      <p class="col-sm-6 mx-auto">Please enter the breast cells microscopic result inside its appropriate input variables below
+        <strong>[Note: For predicted result and the accuracy, please check the footer of the form.]
+        </strong>
+      </p>
+      <form class="mx-auto shadow mb-3 mt-5 border border-dark rounded-lg px-5 col-sm-8" action="{{ url_for('predict')}}" method="post">
+        <h4 class="col-sm-6  mx-auto my-5">Submission Form </h4>
+
+        <div class="form-group col-sm-12">
+          <label for = "texture_mean">Texture Mean:</label>
+          <input  class="form-control" type= "text" name="texture_mean" placeholder="Value range: 9.71 - 39.28" required="required" />
+        </div>
+
+        <div class="form-group col-sm-12">
+          <label for = "area_mean">Area Mean:</label>
+          <input  class="form-control" type="text" name="area_mean" placeholder="Value range: 143.50 - 2501.00" required="required" />
+        </div>
+
+        <div class="form-group col-sm-12">
+          <label for = "concavity_mean">Concavity Mean:</label>
+          <input  class="form-control" type="text" name="concavity_mean" placeholder="Value range: 0.00 - 0.43" required="required" />
+        </div>
+
+        <div class="form-group col-sm-12">
+          <label for = "area_se">Area SE:</label>
+          <input  class="form-control" type="text" name="area_se" placeholder="Value range: 6.80 - 542.20" required="required" />
+        </div>
+
+        <div class="form-group col-sm-12">
+          <label for = "concavity_se">Concavity SE:</label>
+          <input  class="form-control" type="text" name="concavity_se" placeholder="Value range: 0.00 - 0.40" required="required" />
+        </div>
+        <div class="form-group col-sm-12">
+          <label for = "fractal_dimension_se">Fractal Dimension SE:</label>
+          <input  class="form-control" type="text" name="fractal_dimension_se" placeholder="Value range: 0.00 - 0.03" required="required" />
+        </div>
+
+        <div class="form-group col-sm-12">
+          <label for = "smoothness_worst">Smoothness Worst:</label>
+          <input  class="form-control" type="text" name="smoothness_worst" placeholder="Value range: 0.07 - 0.22" required="required" />
+        </div>
+
+        <div class="form-group col-sm-12">
+          <label for = "concavity_worst">Concavity Worst:</label>
+          <input  class="form-control" type="text" name="concavity_worst" placeholder="Value range: 0.00 - 1.25" required="required" />
+        </div>
+        
+        <div class="form-group col-sm-12">
+          <label for = "symmetry_worst">Symmetry Worst:</label>
+          <input  class="form-control" type="text" name="symmetry_worst" placeholder="Value range: 0.16 - 0.66" required="required" />
+        </div>
+
+        <div class="form-group col-sm-12">
+          <label for = "fractal_dimension_worst">Fractal Dimension Worst:</label>
+          <input  class="form-control" type="text" name="fractal_dimension_worst" placeholder="Value range: 0.06 - 0.21" size="5" required="required"/>
+        </div>
+
+        <button type="submit" class="btn btn-primary col-sm-4 mb-5 mt-2 p-2 mx-auto">PREDICT</button>  
+      </form>
+      <footer class="shadow p-5 mx-auto mt-4">
+        <h2 class="result ml-4 mb-4">Presence of Benign detected, so the patient is more likely to not have cancer with an accuracy of: 0.851</h2>
+        <p class="col-sm-6 mx-auto"> &copy; Yaba College Of Technology Final Year Project</p>
+      </footer>
+    </div>
+  </body>
 </html>
